@@ -1,0 +1,7 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Evers Feng Blog</title>
+        <link>http://evers-feng.com/blogs/categories/</link>
+        <description>Categories - Category - Evers Feng Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://evers-feng.com/blogs/categories/" rel="self" type="application/rss+xml" /></channel>
+</rss>

@@ -1,0 +1,7 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Evers Feng Blog</title>
+        <link>http://evers-feng.com/blogs/tags/</link>
+        <description>Tags - Tag - Evers Feng Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://evers-feng.com/blogs/tags/" rel="self" type="application/rss+xml" /></channel>
+</rss>
