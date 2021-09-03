@@ -3,16 +3,9 @@
         <title>Evers Feng Blog</title>
         <link>http://evers-feng.com/blogs/</link>
         <description>Evers Feng Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Sep 2021 16:50:02 -0400</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Sep 2021 16:38:27 -0400</lastBuildDate>
             <atom:link href="http://evers-feng.com/blogs/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Experiment</title>
-    <link>http://evers-feng.com/blogs/posts/experiment/</link>
-    <pubDate>Thu, 02 Sep 2021 16:50:02 -0400</pubDate>
-    <author>Author</author>
-    <guid>http://evers-feng.com/blogs/posts/experiment/</guid>
-    <description><![CDATA[experiment.]]></description>
-</item><item>
     <title>Triangle Containment</title>
     <link>http://evers-feng.com/blogs/posts/triangle-containment/</link>
     <pubDate>Thu, 02 Sep 2021 16:38:27 -0400</pubDate>
