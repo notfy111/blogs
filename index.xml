@@ -18,14 +18,18 @@
     <pubDate>Thu, 02 Sep 2021 16:26:09 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/coin-sum/</guid>
-    <description><![CDATA[Second post here]]></description>
+    <description><![CDATA[Tricky money
+Question Statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
+1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p). It is possible to make £2 in the following way:
+1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p How many different ways can £2 be made using any number of coins?]]></description>
 </item><item>
     <title>10001st Prime</title>
-    <link>http://evers-feng.com/blogs/posts/10001stprime/</link>
+    <link>http://evers-feng.com/blogs/posts/10001st-prime/</link>
     <pubDate>Thu, 02 Sep 2021 16:10:45 -0400</pubDate>
     <author>Author</author>
-    <guid>http://evers-feng.com/blogs/posts/10001stprime/</guid>
-    <description><![CDATA[Question Statement This question comes from Euler.com, withe question ID 7.
+    <guid>http://evers-feng.com/blogs/posts/10001st-prime/</guid>
+    <description><![CDATA[Prime and its magic
+Question Statement This question comes from Euler.com, withe question ID 7.
 The original question is straightforward - how do we find the 1001st prime number among all integers?
 How to approach this? First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself.]]></description>
 </item></channel>
