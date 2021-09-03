@@ -28,8 +28,7 @@ Question Statement In the United Kingdom the currency is made up of pound (£) a
     <pubDate>Thu, 02 Sep 2021 16:10:45 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/10001st-prime/</guid>
-    <description><![CDATA[Prime and its magic
-Question Statement This question comes from Euler.com, withe question ID 7.
+    <description><![CDATA[Prime and its magic Question Statement This question comes from Euler.com, withe question ID 7.
 The original question is straightforward - how do we find the 1001st prime number among all integers?
 How to approach this? First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself.]]></description>
 </item></channel>
