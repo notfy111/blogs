@@ -31,7 +31,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/coin-sum\/"
-        },"genre": "posts","wordcount":  302 ,
+        },"genre": "posts","wordcount":  789 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/coin-sum\/","datePublished": "2021-09-02T16:26:09-04:00","dateModified": "2021-09-02T16:26:09-04:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -81,8 +81,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Coin Sum</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;302 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;789 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -102,14 +102,46 @@ It is possible to make £2 in the following way:</p>
 How many different ways can £2 be made using any number of coins?</p>
 <h1 id="how-to-approah-this">How to approah this?</h1>
 <p>At the first glance, the problem may seem simple - sure, let&rsquo;s just count the number of combinations. We only have 8 different face value anyways.</p>
-<p>But..is it so?</p>
+<p>But..is it?</p>
 <p>If we think about this problem using the brute-force way, we can do something like:</p>
 <p>For each type of face value, we go over each while looping through all different values for the next type of face value, and loop through all different values for the next ype of face value&hellip; By doing so, we are going to have (at least) 8 layers of nested for-loops and within each loop we are also testing about differnet possible numbers that each face value can be used!</p>
 <p>It comes not surprising that this solutio will be brutally time-consuming and error-prone. Testing for different combinations of the values can involve millions of times of calculation even for this one which only required all numbers to add up to 200. What about 200,000, or 2 million?</p>
 <h1 id="divide-and-conquer">Divide and Conquer!</h1>
 <p>In order to help us solve the problem - we need to adap a dynamic programming framework.</p>
 <p>The brute-force solution is so computing intense because that whenever the it tries to loop through a different value, it the calculation will be started over. That is, the previous results do not help with calculations that come in later.</p>
-<p>But what if we can do</p>
+<p>But what if we can simply build out results on top of the previous ones?</p>
+<p>200 is probably too big to crack down at this moment, let&rsquo;s assume that we are trying to figure out how many way there are to make the coins to sum up to 10 pence, and there are only two face values - 1 and 5.</p>
+<p>Apparently, we can have 10 * 1 pence, or 2 * 5 pence, or 1 * 5 pence and 5 * 1 pence, a total of 3 ways. But how did we get there?</p>
+<p>What we are doing, essentially, is to look at every number starting from 1 to 10 and find out, how many ways are there are for our face values to be added to reach the number, and while the number gets larger, we leverage the result from the previous calculation.</p>
+<p>Here we have 10 numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Now we need to ask a series questions when going through each number, starting from 1 pence:</p>
+<ul>
+<li>
+<p>Is this number larger than or equal to the face value? Yep. Now let&rsquo;s put aside another list of number to keep a record.</p>
+</li>
+<li>
+<p>[1,1,1,1,1,1,1,1,1,1] Essentially, each value in this list represents the total combinition that the its corresponding number in the other previous list has, matched by index. This tells us taht, for every number from 1 to 10, they each only has one way of being made of 1 pence.</p>
+</li>
+<li>
+<p>Now let&rsquo;s move to 5 pence. Is this number larger than of equal to the face value?</p>
+</li>
+<li>
+<p>In this case 1 - 4 does not satisfy. But if we look at 5 - 10, things start to change.</p>
+</li>
+<li>
+<p>5 is equal to 5, so we can safely add 1 to the list, meaning that there are 2 ways we can make up 5 using 1 pence and 5 pence.</p>
+</li>
+<li>
+<p>When it gets to larger numbers, we do not only consider the possibility that 5 brings in, but also by the amount that it is larger than 5. For example, when looking at number 9, we do not only need to know the fact that it is larger than 5 so that we can add more values, but also at 9 - 5. Namely, how many possibilities are there to create a value of 4?</p>
+</li>
+<li>
+<p>In this case, it is 1, so for a number 9, we need to add 1 to its possibility value at the corresponding index.</p>
+</li>
+<li>
+<p>Number 10 becomes even more interesting - it is larger than 5 by 5, whih means that we need to include the possibilities that we previously calculated for 5. which is 2. Now for 10, we have 1 + 2.</p>
+</li>
+</ul>
+<h1 id="the-final-solution">The final solution</h1>
+<p>Now we&rsquo;ve got it! No matter how many face-values are there and how large the final sum needs to be, we have had our algorithm that does this comparing, adding, and summing for us!</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
