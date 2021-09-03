@@ -18,11 +18,13 @@
     <guid>http://evers-feng.com/blogs/posts/coin-sum/</guid>
     <description><![CDATA[Second post here]]></description>
 </item><item>
-    <title>10001stPrime</title>
+    <title>10001st Prime</title>
     <link>http://evers-feng.com/blogs/posts/10001stprime/</link>
     <pubDate>Thu, 02 Sep 2021 16:10:45 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/10001stprime/</guid>
-    <description><![CDATA[First post here.]]></description>
+    <description><![CDATA[Question Statement This question comes from Euler.com, withe question ID 7.
+The original question is straightforward - how do we find the 1001st prime number among all integers?
+How to approach this? First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself.]]></description>
 </item></channel>
 </rss>

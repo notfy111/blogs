@@ -5,16 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>10001stPrime - Evers Feng Blog</title><meta name="Description" content=""><meta property="og:title" content="10001stPrime" />
-<meta property="og:description" content="First post here." />
+        <title>10001st Prime - Evers Feng Blog</title><meta name="Description" content=""><meta property="og:title" content="10001st Prime" />
+<meta property="og:description" content="Question Statement This question comes from Euler.com, withe question ID 7.
+The original question is straightforward - how do we find the 1001st prime number among all integers?
+How to approach this? First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://evers-feng.com/blogs/posts/10001stprime/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-02T16:10:45-04:00" />
 <meta property="article:modified_time" content="2021-09-02T16:10:45-04:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="10001stPrime"/>
-<meta name="twitter:description" content="First post here."/>
+<meta name="twitter:title" content="10001st Prime"/>
+<meta name="twitter:description" content="Question Statement This question comes from Euler.com, withe question ID 7.
+The original question is straightforward - how do we find the 1001st prime number among all integers?
+How to approach this? First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself."/>
 <meta name="application-name" content="Evers Feng Blog">
 <meta name="apple-mobile-web-app-title" content="Evers Feng Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,12 +26,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "10001stPrime",
+        "headline": "10001st Prime",
         "inLanguage": "en-us",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/10001stprime\/"
-        },"genre": "posts","wordcount":  3 ,
+        },"genre": "posts","wordcount":  181 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/10001stprime\/","datePublished": "2021-09-02T16:10:45-04:00","dateModified": "2021-09-02T16:10:45-04:00","publisher": {
             "@type": "Organization",
             "name": "Author"},"author": {
@@ -75,17 +79,27 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">10001stPrime</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">10001st Prime</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/blogs/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;181 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>First post here.</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#question-statement">Question Statement</a></li>
+    <li><a href="#how-to-approach-this">How to approach this?</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="question-statement">Question Statement</h2>
+<p>This question comes from Euler.com, withe question ID 7.</p>
+<p>The original question is straightforward - how do we find the 1001st prime number among all integers?</p>
+<h2 id="how-to-approach-this">How to approach this?</h2>
+<p>First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself. For example,  3 can only be wholly divided by 1 and 3, and if divided by 2, it will have a remainder of 1.</p>
+<p>Thus, in order to test whether or not a number is prime, we can try to divde it by each number from 1 to itself and keep a record of the remainder from each calculation. If it is a prime number, we will find out that there are only two occurances where 0 is the remainder. If there are more than 2 occurances of 0, we will know that this number can be divided by numbeers other than 0 and itself, thus not a prime number.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
