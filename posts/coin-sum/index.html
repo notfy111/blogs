@@ -6,8 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Coin Sum - Evers Feng Blog</title><meta name="Description" content=""><meta property="og:title" content="Coin Sum" />
-<meta property="og:description" content="Tricky money
-Question Statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
+<meta property="og:description" content="Tricky money Question Statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p). It is possible to make £2 in the following way:
 1×£1 &#43; 1×50p &#43; 2×20p &#43; 1×5p &#43; 1×2p &#43; 3×1p How many different ways can £2 be made using any number of coins?" />
 <meta property="og:type" content="article" />
@@ -17,8 +16,7 @@ Question Statement In the United Kingdom the currency is made up of pound (£) a
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Coin Sum"/>
-<meta name="twitter:description" content="Tricky money
-Question Statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
+<meta name="twitter:description" content="Tricky money Question Statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p). It is possible to make £2 in the following way:
 1×£1 &#43; 1×50p &#43; 2×20p &#43; 1×5p &#43; 1×2p &#43; 3×1p How many different ways can £2 be made using any number of coins?"/>
 <meta name="application-name" content="Evers Feng Blog">
@@ -33,7 +31,7 @@ Question Statement In the United Kingdom the currency is made up of pound (£) a
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/coin-sum\/"
-        },"genre": "posts","wordcount":  239 ,
+        },"genre": "posts","wordcount":  302 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/coin-sum\/","datePublished": "2021-09-02T16:26:09-04:00","dateModified": "2021-09-02T16:26:09-04:00","publisher": {
             "@type": "Organization",
             "name": "Author"},"author": {
@@ -83,15 +81,19 @@ Question Statement In the United Kingdom the currency is made up of pound (£) a
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Coin Sum</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/blogs/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;239 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;302 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>Tricky money</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#tricky-money">Tricky money</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="tricky-money">Tricky money</h2>
 <h1 id="question-statement">Question Statement</h1>
 <p>In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:</p>
 <p>1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
@@ -105,6 +107,9 @@ How many different ways can £2 be made using any number of coins?</p>
 <p>For each type of face value, we go over each while looping through all different values for the next type of face value, and loop through all different values for the next ype of face value&hellip; By doing so, we are going to have (at least) 8 layers of nested for-loops and within each loop we are also testing about differnet possible numbers that each face value can be used!</p>
 <p>It comes not surprising that this solutio will be brutally time-consuming and error-prone. Testing for different combinations of the values can involve millions of times of calculation even for this one which only required all numbers to add up to 200. What about 200,000, or 2 million?</p>
 <h1 id="divide-and-conquer">Divide and Conquer!</h1>
+<p>In order to help us solve the problem - we need to adap a dynamic programming framework.</p>
+<p>The brute-force solution is so computing intense because that whenever the it tries to loop through a different value, it the calculation will be started over. That is, the previous results do not help with calculations that come in later.</p>
+<p>But what if we can do</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
