@@ -8,7 +8,7 @@
         <title>Get the first prime number from 17 Pi - Evers Feng Blog</title><meta name="Description" content=""><meta property="og:title" content="Get the first prime number from 17 Pi" />
 <meta property="og:description" content="Problem statement What if, you just got an interview from one of your dream employers - Google, and you spent more than 10 hours a day to prepare for it. You have done everything correctly - review key data science concepts, machine learning pipeline, and get several hundred of LeetCode questions done.
 On the day of interview, you are asked the following question:
-Give me the first prime of the expansion in 17 pi." />
+Give me the first 10- digit prime of the expansion in 17 pi." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://evers-feng.com/blogs/posts/get-the-prime-from-17-pi/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-16T22:32:57-04:00" />
@@ -18,7 +18,7 @@ Give me the first prime of the expansion in 17 pi." />
 <meta name="twitter:title" content="Get the first prime number from 17 Pi"/>
 <meta name="twitter:description" content="Problem statement What if, you just got an interview from one of your dream employers - Google, and you spent more than 10 hours a day to prepare for it. You have done everything correctly - review key data science concepts, machine learning pipeline, and get several hundred of LeetCode questions done.
 On the day of interview, you are asked the following question:
-Give me the first prime of the expansion in 17 pi."/>
+Give me the first 10- digit prime of the expansion in 17 pi."/>
 <meta name="application-name" content="Evers Feng Blog">
 <meta name="apple-mobile-web-app-title" content="Evers Feng Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -31,7 +31,7 @@ Give me the first prime of the expansion in 17 pi."/>
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/get-the-prime-from-17-pi\/"
-        },"genre": "posts","wordcount":  101 ,
+        },"genre": "posts","wordcount":  245 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/get-the-prime-from-17-pi\/","datePublished": "2021-09-16T22:32:57-04:00","dateModified": "2021-09-16T22:32:57-04:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -81,8 +81,8 @@ Give me the first prime of the expansion in 17 pi."/>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Get the first prime number from 17 Pi</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;101 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;245 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -90,15 +90,32 @@ Give me the first prime of the expansion in 17 pi."/>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#give-me-the-first-prime-of-the-expansion-in-17-pi">Give me the first prime of the expansion in 17 pi.</a></li>
+    <li><a href="#give-me-the-first-10--digit-prime-of-the-expansion-in-17-pi">Give me the first 10- digit prime of the expansion in 17 pi.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#step-1-get-pi">step 1: get pi</a></li>
+        <li><a href="#step-2-use-a-window-to-filter-all-10-digit-numbers-from-the-expanded-long-decimals">step 2: use a window to filter all 10-digit numbers from the expanded long decimals</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="problem-statement">Problem statement</h1>
 <p>What if, you just got an interview from one of your dream employers - Google, and you spent more than 10 hours a day to prepare for it. You have done everything correctly -  review key data science concepts, machine learning pipeline, and get several hundred of LeetCode questions done.</p>
 <p>On the day of interview, you are asked the following question:</p>
-<h2 id="give-me-the-first-prime-of-the-expansion-in-17-pi">Give me the first prime of the expansion in 17 pi.</h2>
+<h2 id="give-me-the-first-10--digit-prime-of-the-expansion-in-17-pi">Give me the first 10- digit prime of the expansion in 17 pi.</h2>
 <p>You paniced, get totally thrown off - I have never prepared for this kind of questions before, what do I do??</p>
 <h1 id="divide-and-conquer-to-the-rescue">Divide and Conquer to the rescue!</h1>
+<p>This is a question seems large becase it implicitly asks for a lot of sub-parts to be done before you can get an answer. The good news here is also that,
+we can tackle the question solving the small questions first.</p>
+<h3 id="step-1-get-pi">step 1: get pi</h3>
+<p>First and foremost, let&rsquo;s think about how to get pi and a long expansion of its decimal parts to make sure we have enough digits to work with.</p>
+<p>Theoretically, we will need to calculate pi and get the values by writing code for Taylor Expansion. Considerating the complexity in writing that,
+and the potential rounding errors that can occur, it is a risky route to take.</p>
+<p>Luckily, we have libaries like <code>sympy</code> that helps get whatever digit expansion we&rsquo;d want to see.</p>
+<h3 id="step-2-use-a-window-to-filter-all-10-digit-numbers-from-the-expanded-long-decimals">step 2: use a window to filter all 10-digit numbers from the expanded long decimals</h3>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
