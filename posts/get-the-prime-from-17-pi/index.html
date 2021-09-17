@@ -31,7 +31,7 @@ Give me the first 10- digit prime of the expansion in 17 pi."/>
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/get-the-prime-from-17-pi\/"
-        },"genre": "posts","wordcount":  476 ,
+        },"genre": "posts","wordcount":  766 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/get-the-prime-from-17-pi\/","datePublished": "2021-09-16T22:32:57-04:00","dateModified": "2021-09-16T22:32:57-04:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -81,8 +81,8 @@ Give me the first 10- digit prime of the expansion in 17 pi."/>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Get the first prime number from 17 Pi</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;476 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;766 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -101,6 +101,8 @@ Give me the first 10- digit prime of the expansion in 17 pi."/>
         <li><a href="#step-3-check-whether-or-not-a-number-is-prime">step 3: check whether or not a number is prime</a></li>
       </ul>
     </li>
+    <li><a href="#pesudo-code">Pesudo-code</a></li>
+    <li><a href="#if-you-are-able-to-demonstrate-this-divide-and-conquer-mindset-have-a-great-number-sense-and-to-think-about-corner-cases-youll-impress-the-interviewer-in-no-time">If you are able to demonstrate this divide-and-conquer mindset, have a great number sense, and to think about corner cases, you&rsquo;ll impress the interviewer in no time!</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="problem-statement">Problem statement</h1>
@@ -128,6 +130,12 @@ be fully divided by numbers other than 1 and itself, then it is not prime; other
 <p>However, dividing a number millions of times may not be as efficient. How can we minimize the number of times that this number is divded by?</p>
 <p>In fact, an important yet not really intuitive fact to know is that: to find out a number&rsquo;s all posible composites, we only need to check from the smallest to the square root of this number.</p>
 <p>Why is that so?</p>
+<p>If we think of the number line of composites to large number as symmmetrical, it is clear that - as one of the composite gets larger, the other composite becomes smaller, as they have to multiply to get the same amount. As a s result, if one of the composite is 2, and to get a number of 1786543062, the other composite is large, which is 893271531. On the other hand, if the first composite is 893271531, then the other composite is small, which is 2. As a result, when we have check from one end of the number line to the point of the square root of this number, we have in fact also checked the other end of the number line - because those numbers need to multiply with these smaller numbers to get to the target number.</p>
+<p>Consequently, once we have checked from 2 to the square root of the number and find no composite, it is safe to say that we are not going to find a corresponding composite in the larger end of pool either.</p>
+<p>Once wraped our brain around that, the solution becomes much more straightforward.</p>
+<h2 id="pesudo-code">Pesudo-code</h2>
+<p>First, we need to get a large exapansion of 17 pi to make sure our decimals are accurate. Then, we need a filter to run through all valid 10-digits from the large expansion. For each of the 10-digit candidate, check whether or not they are prime by dividing the number from 2 to the square root of itself. Once we find such number, stop the work and return the number.</p>
+<h2 id="if-you-are-able-to-demonstrate-this-divide-and-conquer-mindset-have-a-great-number-sense-and-to-think-about-corner-cases-youll-impress-the-interviewer-in-no-time">If you are able to demonstrate this divide-and-conquer mindset, have a great number sense, and to think about corner cases, you&rsquo;ll impress the interviewer in no time!</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
