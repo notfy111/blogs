@@ -31,7 +31,7 @@ Give me the first 10- digit prime of the expansion in 17 pi."/>
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/get-the-prime-from-17-pi\/"
-        },"genre": "posts","wordcount":  245 ,
+        },"genre": "posts","wordcount":  476 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/get-the-prime-from-17-pi\/","datePublished": "2021-09-16T22:32:57-04:00","dateModified": "2021-09-16T22:32:57-04:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -81,8 +81,8 @@ Give me the first 10- digit prime of the expansion in 17 pi."/>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Get the first prime number from 17 Pi</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;245 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-16">2021-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;476 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -98,6 +98,7 @@ Give me the first 10- digit prime of the expansion in 17 pi."/>
       <ul>
         <li><a href="#step-1-get-pi">step 1: get pi</a></li>
         <li><a href="#step-2-use-a-window-to-filter-all-10-digit-numbers-from-the-expanded-long-decimals">step 2: use a window to filter all 10-digit numbers from the expanded long decimals</a></li>
+        <li><a href="#step-3-check-whether-or-not-a-number-is-prime">step 3: check whether or not a number is prime</a></li>
       </ul>
     </li>
   </ul>
@@ -116,6 +117,17 @@ we can tackle the question solving the small questions first.</p>
 and the potential rounding errors that can occur, it is a risky route to take.</p>
 <p>Luckily, we have libaries like <code>sympy</code> that helps get whatever digit expansion we&rsquo;d want to see.</p>
 <h3 id="step-2-use-a-window-to-filter-all-10-digit-numbers-from-the-expanded-long-decimals">step 2: use a window to filter all 10-digit numbers from the expanded long decimals</h3>
+<p>For this task, we will need to imagine a moving filter that looks at 10 digits at a time, and after that moves one digit forward to look at the next.
+In this case, it is much easier to treat the long decimals as a string, and each number as a character.</p>
+<p><strong>Caution</strong> one corner case to think about is when the number starts with 0.</p>
+<p>In this case, we will need a condiitional statement which ignores 10-digit number that starts with 0.</p>
+<h3 id="step-3-check-whether-or-not-a-number-is-prime">step 3: check whether or not a number is prime</h3>
+<p>Here comes our concept of prime number again. A prime number is a positive integer that can only be divided without remainder by 1 and itself.
+Based on this concept, we can check if our 10-digit number is prime by dividing it with all possible numbers that are smaller than itself. If it can<br>
+be fully divided by numbers other than 1 and itself, then it is not prime; otherwise it is.</p>
+<p>However, dividing a number millions of times may not be as efficient. How can we minimize the number of times that this number is divded by?</p>
+<p>In fact, an important yet not really intuitive fact to know is that: to find out a number&rsquo;s all posible composites, we only need to check from the smallest to the square root of this number.</p>
+<p>Why is that so?</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
