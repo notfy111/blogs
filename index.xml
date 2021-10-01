@@ -12,8 +12,7 @@
     <pubDate>Fri, 01 Oct 2021 15:39:23 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/</guid>
-    <description><![CDATA[Malaria
-require &#39;redcarpet&#39; markdown = Redcarpet.new(&#34;Hello World!&#34;) puts markdown.to_html ]]></description>
+    <description><![CDATA[Background Malaria may not be a very familiar disease to people in those more developed areas of the globe. However, at places where the climate is suitable for mosquitoes to reproduce, public health practices are most advanced and population density is high, Malaria has been a leading factor of death cases. The most horrific part about this disease that, it only takes on mosquito bite to be infected. How has the world tackled this life-threatening diseas, and what countires have made impressive progress?]]></description>
 </item><item>
     <title>Get the first prime number from 17 Pi</title>
     <link>http://evers-feng.com/blogs/posts/get-the-prime-from-17-pi/</link>
