@@ -10,7 +10,8 @@
     <pubDate>Fri, 01 Oct 2021 15:39:23 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/malaria-analysis/</guid>
-    <description><![CDATA[Malaria]]></description>
+    <description><![CDATA[Malaria
+require &#39;redcarpet&#39; markdown = Redcarpet.new(&#34;Hello World!&#34;) puts markdown.to_html ]]></description>
 </item><item>
     <title>Get the first prime number from 17 Pi</title>
     <link>http://evers-feng.com/blogs/posts/get-the-prime-from-17-pi/</link>
