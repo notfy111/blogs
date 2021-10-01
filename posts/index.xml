@@ -3,8 +3,7 @@
         <title>All Posts - Evers Feng Blog</title>
         <link>http://evers-feng.com/blogs/posts/</link>
         <description>All Posts | Evers Feng Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>yi.feng-mids@duke.edu (Evers)</managingEditor>
-            <webMaster>yi.feng-mids@duke.edu (Evers)</webMaster><lastBuildDate>Fri, 01 Oct 2021 15:39:23 -0400</lastBuildDate><atom:link href="http://evers-feng.com/blogs/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 01 Oct 2021 15:39:23 -0400</lastBuildDate><atom:link href="http://evers-feng.com/blogs/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Malaria Analysis</title>
     <link>http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/</link>
     <pubDate>Fri, 01 Oct 2021 15:39:23 -0400</pubDate>
@@ -12,41 +11,30 @@
     <guid>http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/</guid>
     <description><![CDATA[Background Malaria may not be a very familiar disease to people in those more developed areas of the globe. However, at places where the climate is suitable for mosquitoes to reproduce, public health practices are most advanced and population density is high, Malaria has been a leading factor of death cases. The most horrific part about this disease that, it only takes on mosquito bite to be infected. How has the world tackled this life-threatening diseas, and what countires have made impressive progress?]]></description>
 </item><item>
-    <title>Get the first prime number from 17 Pi</title>
-    <link>http://evers-feng.com/blogs/posts/get-the-prime-from-17-pi/</link>
-    <pubDate>Thu, 16 Sep 2021 22:32:57 -0400</pubDate>
-    <author>Author</author>
-    <guid>http://evers-feng.com/blogs/posts/get-the-prime-from-17-pi/</guid>
-    <description><![CDATA[Problem statement What if, you just got an interview from one of your dream employers - Google, and you spent more than 10 hours a day to prepare for it. You have done everything correctly - review key data science concepts, machine learning pipeline, and get several hundred of LeetCode questions done.
-On the day of interview, you are asked the following question:
-Give me the first 10- digit prime of the expansion in 17 pi.]]></description>
-</item><item>
     <title>Triangle Containment</title>
     <link>http://evers-feng.com/blogs/posts/triangle-containment/</link>
     <pubDate>Thu, 02 Sep 2021 16:38:27 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/triangle-containment/</guid>
-    <description><![CDATA[Question statement How do you tell whether or not, a triangle drawn in a Cartesian plane contains the origin (0,0)?
-It is not a brain teaser as far as we can actually draw the trangle using the coordinates for its three corners, and tell from our eye whether or not it is true.
-But things get a little bit hard when we need to think about this algorithmically.
-How to approach it?]]></description>
+    <description><![CDATA[The third post.]]></description>
 </item><item>
     <title>Coin Sum</title>
     <link>http://evers-feng.com/blogs/posts/coin-sum/</link>
     <pubDate>Thu, 02 Sep 2021 16:26:09 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/coin-sum/</guid>
-    <description><![CDATA[Question statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
+    <description><![CDATA[Tricky money
+Question Statement In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p). It is possible to make £2 in the following way:
-1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p How many different ways can £2 be made using any number of coins?
-How to approah this?]]></description>
+1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p How many different ways can £2 be made using any number of coins?]]></description>
 </item><item>
     <title>10001st Prime</title>
-    <link>http://evers-feng.com/blogs/posts/1001st-prime/</link>
+    <link>http://evers-feng.com/blogs/posts/10001st-prime/</link>
     <pubDate>Thu, 02 Sep 2021 16:10:45 -0400</pubDate>
     <author>Author</author>
-    <guid>http://evers-feng.com/blogs/posts/1001st-prime/</guid>
-    <description><![CDATA[Question statement This question comes from Euler.com, withe question ID 7.
+    <guid>http://evers-feng.com/blogs/posts/10001st-prime/</guid>
+    <description><![CDATA[Prime and its magic
+Question Statement This question comes from Euler.com, withe question ID 7.
 The original question is straightforward - how do we find the 1001st prime number among all integers?
 How to approach this? First, we need to understand what the criterion for a number to be regarded as a prime number : a prime number is an integer that cannot be divded without remainder by any number except for 1 and itself.]]></description>
 </item></channel>

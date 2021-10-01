@@ -18,7 +18,7 @@
 <meta name="application-name" content="Evers Feng Blog">
 <meta name="apple-mobile-web-app-title" content="Evers Feng Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/" /><link rel="prev" href="http://evers-feng.com/blogs/posts/get-the-prime-from-17-pi/" /><link rel="stylesheet" href="/blogs/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/blogs/css/style.min.css"><link rel="stylesheet" href="/blogs/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/blogs/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/" /><link rel="prev" href="http://evers-feng.com/blogs/posts/triangle-containment/" /><link rel="stylesheet" href="/blogs/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/blogs/css/style.min.css"><link rel="stylesheet" href="/blogs/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/blogs/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,12 +27,12 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/visualize-malaria-data-using-altair\/"
-        },"genre": "posts","wordcount":  163 ,
+        },"genre": "posts","wordcount":  116 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/visualize-malaria-data-using-altair\/","datePublished": "2021-10-01T15:39:23-04:00","dateModified": "2021-10-01T15:39:23-04:00","publisher": {
             "@type": "Organization",
-            "name": "Evers"},"author": {
+            "name": "Author"},"author": {
                 "@type": "Person",
-                "name": "Evers"
+                "name": "Author"
             },"description": ""
     }
     </script></head>
@@ -76,8 +76,8 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Malaria Analysis</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="http://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-01">2021-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;163 words&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/blogs/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-01">2021-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;116 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -90,6 +90,7 @@
     <li><a href="#data">Data</a></li>
     <li><a href="#tool">Tool</a></li>
     <li><a href="#visualization-and-insights">Visualization and insights</a></li>
+    <li><a href="#visualization-and-insights-1">Visualization and insights</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="background">Background</h2>
@@ -97,25 +98,13 @@
 <h2 id="data">Data</h2>
 <h2 id="tool">Tool</h2>
 <h2 id="visualization-and-insights">Visualization and insights</h2>
-<!-- raw HTML omitted -->
-<pre><code>  function showError(el, error){
-      el.innerHTML = ('&lt;div class=&quot;error&quot; style=&quot;color:red;&quot;&gt;'
-                      + '&lt;p&gt;JavaScript Error: ' + error.message + '&lt;/p&gt;'
-                      + &quot;&lt;p&gt;This usually means there's a typo in your chart specification. &quot;
-                      + &quot;See the javascript console for the full traceback.&lt;/p&gt;&quot;
-                      + '&lt;/div&gt;');
-      throw error;
-  }
-  const el = document.getElementById('vis');
-  vegaEmbed(&quot;#vis&quot;, spec, embedOpt)
-    .catch(error =&gt; showError(el, error));
-})(vegaEmbed);
-</code></pre>
-<p><!-- raw HTML omitted --></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">require</span> <span class="s1">&#39;redcarpet&#39;</span>
 <span class="n">markdown</span> <span class="o">=</span> <span class="n">Redcarpet</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">)</span>
 <span class="n">puts</span> <span class="n">markdown</span><span class="o">.</span><span class="n">to_html</span>
-</code></pre></div></div><div class="post-footer" id="post-footer">
+</code></pre></div><h2 id="visualization-and-insights-1">Visualization and insights</h2>
+<p>{ {&lt; rawhtml &gt;}}</p>
+<!-- raw HTML omitted -->
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -138,12 +127,12 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/blogs/posts/get-the-prime-from-17-pi/" class="prev" rel="prev" title="Get the first prime number from 17 Pi"><i class="fas fa-angle-left fa-fw"></i>Get the first prime number from 17 Pi</a></div>
+    <div class="post-nav"><a href="/blogs/posts/triangle-containment/" class="prev" rel="prev" title="Triangle Containment"><i class="fas fa-angle-left fa-fw"></i>Triangle Containment</a></div>
 </div>
 </article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://evers-feng.com" target="_blank">Evers</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/blogs/" target="_blank"></a></span></div>
         </div>
     </footer></div>
 
