@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>yi.feng-mids@duke.edu (Evers)</managingEditor>
             <webMaster>yi.feng-mids@duke.edu (Evers)</webMaster><lastBuildDate>Fri, 01 Oct 2021 15:39:23 -0400</lastBuildDate><atom:link href="http://evers-feng.com/blogs/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Malaria Analysis</title>
-    <link>http://evers-feng.com/blogs/posts/malaria-analysis/</link>
+    <link>http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/</link>
     <pubDate>Fri, 01 Oct 2021 15:39:23 -0400</pubDate>
     <author>Author</author>
-    <guid>http://evers-feng.com/blogs/posts/malaria-analysis/</guid>
+    <guid>http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/</guid>
     <description><![CDATA[Malaria
 require &#39;redcarpet&#39; markdown = Redcarpet.new(&#34;Hello World!&#34;) puts markdown.to_html ]]></description>
 </item><item>
