@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/visualize-malaria-data-using-altair\/"
-        },"genre": "posts","wordcount":  19733 ,
+        },"genre": "posts","wordcount":  19668 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/visualize-malaria-data-using-altair\/","datePublished": "2021-10-01T15:39:23-04:00","dateModified": "2021-10-01T15:39:23-04:00","publisher": {
             "@type": "Organization",
             "name": "Author"},"author": {
@@ -77,7 +77,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Malaria Analysis</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/blogs/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-01">2021-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;19733 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-01">2021-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;19668 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;93 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -160,38 +160,7 @@ Given the life-threatening nature of Malaria, a few questions can prove more val
 </code></pre></div><p>This visualization is interactive. We can easily click on a country on the left panel and get the highlight of its deaths cases curve on the right panel. If we are interested in multiple countries, <code>shift + click</code> allows multi-select and we can compare multiple countries simultaneously,</p>
 <p>From this visualization, it is easy to notice that Uganda has definetely made some great and steady progress curtailing Malaria. Being the country that had the highest number of Malaria infection, it sucessfully reduced the case to about 1-fourth of what it had two decades ago. In contrast, countries such as Mali and Niger, althought having a relatively lower average death cases, did not have a significant reduction of death cases compared to 1990.</p>
 <p>Interestingly, Burkina Faso and Sierra Leone had a similar spike in death around 2004, which might be traced back to some of their major national practices back in that time.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&#34;single&#34;</span><span class="p">,</span> <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
 
-<span class="n">line</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(deaths):Q&#39;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Total Death Cases&#34;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">,</span>
-    <span class="n">strokeDash</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">,</span>
-    <span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
-    <span class="n">pts</span><span class="p">)</span>
-<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;entity:N&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Country&#34;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(deaths)&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Total Death Cases&#34;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&#34;skyblue&#34;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&#34;grey&#34;</span><span class="p">))</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
-<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
-
-<span class="n">death_by_age_top10</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
-    <span class="n">line</span><span class="p">,</span>
-    <span class="n">bar</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Death Cases in Top 10 Malaria-Hard-Hit Countries by Age Group&#34;</span> 
-    <span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
-    <span class="n">fontSize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span>
-<span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
 
 <head>
   <style>
@@ -239,8 +208,6 @@ Also surprisingly, almost half of the 10 countries have an increasing curve for 
     <span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
     <span class="n">pts</span><span class="p">)</span>
-
-
 
 <span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;entity:N&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Country&#34;</span><span class="p">),</span>
