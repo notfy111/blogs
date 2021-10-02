@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/visualize-malaria-data-using-altair\/"
-        },"genre": "posts","wordcount":  19528 ,
+        },"genre": "posts","wordcount":  19733 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/visualize-malaria-data-using-altair\/","datePublished": "2021-10-01T15:39:23-04:00","dateModified": "2021-10-01T15:39:23-04:00","publisher": {
             "@type": "Organization",
             "name": "Author"},"author": {
@@ -77,8 +77,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Malaria Analysis</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/blogs/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-01">2021-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;19528 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;92 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-01">2021-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;19733 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;93 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -108,57 +108,90 @@
 <p>Undoubtedly, these three datasets contain a lot of information across a significant period of time. It became important to understand clearly: where do we want to start, and what do we want to seek from the data?
 Given the life-threatening nature of Malaria, a few questions can prove more valuable than others: in which countires is he situation of Malaria most pressing? Among those, which age group is most vulnerable to this diseas? How have those countries responded to this challenge since the start of the 21st century? With those questions in mind, we can embark on our data journey.</p>
 <p>For this analysis, we have chosen to subset the data to only include the 10 countries that had the most Malaria death cases in 1990, which we assume is a fair anchor for identifying countries that had Malaria as a the most pressing public health issue. In order to see clearly how do the death cases increase or decrease in the past two decades and the overall Malaria situation, we have created the visualiation below using this block of code:</p>
-<pre><code>import altair as alt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 
-source = subset_top_10
+<span class="n">source</span> <span class="o">=</span> <span class="n">subset_top_10</span>
 
-selector = alt.selection_multi(empty='all', fields=['Entity'])
-selection = alt.selection_multi(fields=['Entity'], bind='legend')
+<span class="n">selector</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">empty</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Entity&#39;</span><span class="p">])</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_multi</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Entity&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="s1">&#39;legend&#39;</span><span class="p">)</span>
 
-base = alt.Chart(source).properties(
-    width=250,
-    height=250
-).add_selection(selection)
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">250</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 
-overall_mean = base.mark_bar(filled=True, size=10).encode(
-    x=alt.X('Entity', title=&quot;Country&quot;),
-    y=alt.Y('mean(Death/100,000):Q',
-            scale=alt.Scale(domain=[0,250])),
-        tooltip=&quot;Entity:N&quot;,
-    color=alt.condition(selector | selection,
-                        'Entity',
-                        alt.value('lightgray'),
-                        scale=alt.Scale(scheme = 'category10')),
-).add_selection(
-    selection,selector
+<span class="n">overall_mean</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Entity&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&#34;Country&#34;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;mean(Death/100,000):Q&#39;</span><span class="p">,</span>
+            <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">])),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&#34;Entity:N&#34;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selector</span> <span class="o">|</span> <span class="n">selection</span><span class="p">,</span>
+                        <span class="s1">&#39;Entity&#39;</span><span class="p">,</span>
+                        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">),</span>
+                        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span> <span class="o">=</span> <span class="s1">&#39;category10&#39;</span><span class="p">)),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">selection</span><span class="p">,</span><span class="n">selector</span>
 
-summed_cases = base.mark_line(opacity=0.5, thickness=1).encode(
-    x=alt.X('Year:O'),
-    y=alt.Y('Death/100,000:Q',
-            scale=alt.Scale(domain=[0,250])),
-        tooltip=&quot;Entity:N&quot;,
-    color=alt.condition(selector | selection,
-                        'Entity',
-                        alt.value('lightgray'),
-                        scale=alt.Scale(scheme = 'category10'),
-                        legend = alt.Legend(title = &quot;Country&quot;))
-).transform_filter(
-    selection
-).add_selection(
-    selection,selector
-)
-)
-visual_death_top10 = alt.hconcat(overall_mean , summed_cases).properties(
-    title = &quot;Death Cases in Top 10 Malaria-Hard-Hit Countries&quot; 
-    ).configure_title(
-    fontSize=15,
-    anchor='middle',
-    color='Black'
-)
-</code></pre><p>This visualization is interactive. We can easily click on a country on the left panel and get the highlight of its deaths cases curve on the right panel. If we are interested in multiple countries, <code>shift + click</code> allows multi-select and we can compare multiple countries simultaneously,</p>
+<span class="n">summed_cases</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Year:O&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Death/100,000:Q&#39;</span><span class="p">,</span>
+            <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">])),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&#34;Entity:N&#34;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selector</span> <span class="o">|</span> <span class="n">selection</span><span class="p">,</span>
+                        <span class="s1">&#39;Entity&#39;</span><span class="p">,</span>
+                        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">),</span>
+                        <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span> <span class="o">=</span> <span class="s1">&#39;category10&#39;</span><span class="p">),</span>
+                        <span class="n">legend</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Country&#34;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">selection</span><span class="p">,</span><span class="n">selector</span>
+<span class="p">)</span>
+<span class="p">)</span>
+<span class="n">visual_death_top10</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">(</span><span class="n">overall_mean</span> <span class="p">,</span> <span class="n">summed_cases</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Death Cases in Top 10 Malaria-Hard-Hit Countries&#34;</span> 
+    <span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span>
+<span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>This visualization is interactive. We can easily click on a country on the left panel and get the highlight of its deaths cases curve on the right panel. If we are interested in multiple countries, <code>shift + click</code> allows multi-select and we can compare multiple countries simultaneously,</p>
 <p>From this visualization, it is easy to notice that Uganda has definetely made some great and steady progress curtailing Malaria. Being the country that had the highest number of Malaria infection, it sucessfully reduced the case to about 1-fourth of what it had two decades ago. In contrast, countries such as Mali and Niger, althought having a relatively lower average death cases, did not have a significant reduction of death cases compared to 1990.</p>
 <p>Interestingly, Burkina Faso and Sierra Leone had a similar spike in death around 2004, which might be traced back to some of their major national practices back in that time.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&#34;single&#34;</span><span class="p">,</span> <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
 
+<span class="n">line</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(deaths):Q&#39;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Total Death Cases&#34;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">,</span>
+    <span class="n">strokeDash</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">,</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">pts</span><span class="p">)</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;entity:N&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Country&#34;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(deaths)&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Total Death Cases&#34;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&#34;skyblue&#34;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&#34;grey&#34;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+
+<span class="n">death_by_age_top10</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">line</span><span class="p">,</span>
+    <span class="n">bar</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Death Cases in Top 10 Malaria-Hard-Hit Countries by Age Group&#34;</span> 
+    <span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span>
+<span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <head>
   <style>
@@ -196,7 +229,40 @@ visual_death_top10 = alt.hconcat(overall_mean , summed_cases).properties(
 <p>After getting a sense of the overall Malaria problem in these countries, now it is worth investigating the age groups that are primarily vulnerable in front of Malaria.
 This interactie visualization has the lower panel as the total death cases by country, and the upper panel as the break down of death cases by age group from 1990 to 2016. As we interact with the graph, it is clear that 0 - 5 age group is consistenly being the most vulnerable group against Malaria. This might be caused by the fact that this group has the lowest mobility, and it is very easy for them to be bitten by a mosquito when sleeping (also given the fact that at this age they have to spend most of their time sleeping). It also indirectly reflects that the child-care practices and resources are scarce in these countries.
 Also surprisingly, almost half of the 10 countries have an increasing curve for the death cases in the 0 - 5 age group compared to 1990. This is not only alarming, but also flags a need to put in much more efforts and recourses to this group which is also the youngest and powerless.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span><span class="n">pts</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&#34;single&#34;</span><span class="p">,</span> <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
 
+<span class="n">line</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(deaths):Q&#39;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Total Death Cases&#34;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">,</span>
+    <span class="n">strokeDash</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">,</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">pts</span><span class="p">)</span>
+
+
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">top_10_by_age</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;entity:N&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Country&#34;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(deaths)&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Total Death Cases&#34;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&#34;skyblue&#34;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">ColorValue</span><span class="p">(</span><span class="s2">&#34;grey&#34;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+
+<span class="n">death_by_age_top10</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">line</span><span class="p">,</span>
+    <span class="n">bar</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Death Cases in Top 10 Malaria-Hard-Hit Countries by Age Group&#34;</span> 
+    <span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span>
+<span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
 
 </head>
 <body>
@@ -224,7 +290,38 @@ Also surprisingly, almost half of the 10 countries have an increasing curve for 
 
 <p>Seeing all these staggering results, at this point it might be good to stop and think for a second: is this analysis doing justice for these countries? The next visualization may reveal some other insights.
 Below is the graph what depicts the incident of Malaria among 100,000 at risk population frm 2000 to 2015. Here, in fact we see that all countries have had good progress in the time frame, which means that for people at risk, the odds of them getting Malaria has been reduced.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span><span class="n">highlight</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;mouseover&#39;</span><span class="p">,</span>
+                          <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Entity&#39;</span><span class="p">],</span> <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">incidents_top_10</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;sum(Incidents per 100,000 at risk):Q&#39;</span><span class="p">,</span>
+           <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Incident per 1000 at risk&#34;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&#34;Entity&#34;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Country&#34;</span><span class="p">)),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Entity&#34;</span><span class="p">,</span><span class="s2">&#34;Year&#34;</span><span class="p">,</span><span class="s2">&#34;Incidents per 100,000 at risk&#34;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">highlight</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span>
+<span class="p">)</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="o">~</span><span class="n">highlight</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">6</span><span class="p">)),</span>
+<span class="p">)</span>
+<span class="n">multi_highlight</span> <span class="o">=</span> <span class="n">points</span> <span class="o">+</span> <span class="n">lines</span>
+<span class="n">multi_highlight</span> <span class="o">=</span> <span class="n">multi_highlight</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&#34;Incidents per 100000 population at risk in Top 10 Malaria-Hard-Hit Countries&#34;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <body>
   <div id="vis3"></div>
