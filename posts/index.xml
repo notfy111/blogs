@@ -4,7 +4,15 @@
         <link>http://evers-feng.com/blogs/posts/</link>
         <description>All Posts | Evers Feng Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>yf129@duke.edu (Evers)</managingEditor>
-            <webMaster>yf129@duke.edu (Evers)</webMaster><lastBuildDate>Fri, 01 Oct 2021 15:39:23 -0400</lastBuildDate><atom:link href="http://evers-feng.com/blogs/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yf129@duke.edu (Evers)</webMaster><lastBuildDate>Sun, 17 Oct 2021 15:48:13 -0400</lastBuildDate><atom:link href="http://evers-feng.com/blogs/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Get_17_th_prime</title>
+    <link>http://evers-feng.com/blogs/posts/get_17_th_prime/</link>
+    <pubDate>Sun, 17 Oct 2021 15:48:13 -0400</pubDate>
+    <author>Author</author>
+    <guid>http://evers-feng.com/blogs/posts/get_17_th_prime/</guid>
+    <description><![CDATA[What if, you just got an interview from one of your dream employers - Google, and you spent more than 10 hours a day to prepare for it. You have done everything correctly - review key data science concepts, machine learning pipeline, and get several hundred of LeetCode questions done. On the day of interview, you are asked the following question:
+Give me the first 10- digit prime of the expansion in 17 * pi You paniced, get totally thrown off - I have never prepared for this kind of questions before, what do I do?]]></description>
+</item><item>
     <title>Malaria Analysis</title>
     <link>http://evers-feng.com/blogs/posts/visualize-malaria-data-using-altair/</link>
     <pubDate>Fri, 01 Oct 2021 15:39:23 -0400</pubDate>
