@@ -6,7 +6,8 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Triangle Containment - Evers Feng Blog</title><meta name="Description" content=""><meta property="og:title" content="Triangle Containment" />
-<meta property="og:description" content="The third post." />
+<meta property="og:description" content="How do you tell whether or not, a triangle drawn in a Cartesian plane contains the origin (0,0)? It is not a brain teaser as far as we can actually draw the trangle using the coordinates for its three corners, and tell from our eye whether or not it is true. But things get a little bit hard when we need to think about this algorithmically.
+How to approach it? Once we connect the three corners to form a triangle, we have created a plane, in which an almost infinite number of points can be included." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://evers-feng.com/blogs/posts/triangle-containment/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-02T16:38:27-04:00" />
@@ -14,7 +15,8 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Triangle Containment"/>
-<meta name="twitter:description" content="The third post."/>
+<meta name="twitter:description" content="How do you tell whether or not, a triangle drawn in a Cartesian plane contains the origin (0,0)? It is not a brain teaser as far as we can actually draw the trangle using the coordinates for its three corners, and tell from our eye whether or not it is true. But things get a little bit hard when we need to think about this algorithmically.
+How to approach it? Once we connect the three corners to form a triangle, we have created a plane, in which an almost infinite number of points can be included."/>
 <meta name="application-name" content="Evers Feng Blog">
 <meta name="apple-mobile-web-app-title" content="Evers Feng Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/triangle-containment\/"
-        },"genre": "posts","wordcount":  3 ,
+        },"genre": "posts","wordcount":  428 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/triangle-containment\/","datePublished": "2021-09-02T16:38:27-04:00","dateModified": "2021-09-02T16:38:27-04:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -77,15 +79,35 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Triangle Containment</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-02">2021-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;428 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>The third post.</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-approach-it">How to approach it?</a></li>
+    <li><a href="#think-backwards">Think backwards</a></li>
+    <li><a href="#the-final-solution">The final solution</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>How do you tell whether or not, a triangle drawn in a Cartesian plane contains the origin (0,0)?
+It is not a brain teaser as far as we can actually draw the trangle using the coordinates for its three corners, and tell from our eye whether or not it is true.
+But things get a little bit hard when we need to think about this algorithmically.</p>
+<h2 id="how-to-approach-it">How to approach it?</h2>
+<p>Once we connect the three corners to form a triangle, we have created a plane, in which an almost infinite number of points can be included.
+If we cannot wrap our head around comparing points to points, it can be a very difficult problem to solve. Do we know the triangle contians the origin if two of the corners' x-coordinates have different signs? What about y-coordinates? Shoould one of the lines cross the axis to confirm that the origin is included in the plane?
+In fact, answering these questions does not give us a definitive answer, and we&rsquo;ll find that a triangle that satisfy all these requisites can still be really far from the origin, and one that violates all these can still include the origin.</p>
+<h2 id="think-backwards">Think backwards</h2>
+<p>If listing pre-requisites does not help address the problem, then what can?
+Well, we can work backwards - namely, we can start from the case when the triangle contains the origin, and find out the term that must be true in that fase.
+If we draw a random trangle that includes the origin, soon we can notice that - this trangle can be perfectly divided into smaller triangles.
+Say, we have its three corners as A, B, and C. The origin can be the fourth corner (O) which, when combined with any two other corners, can form a smaller triangle. Adding upp the three small tirangles ABO, ACO, BCO can thus give us the same area as the larger triangle.
+Let&rsquo;s test it on triangles which do not contain the origin.  Apparently, if we connect the corners with the origin, the smaller triangles are always tweaked or streched, and adding them back does not give us the same area as the original triangle.</p>
+<h2 id="the-final-solution">The final solution</h2>
+<p>Then everything is simple now! For each triangle, we can assume that it includes the origin, and calculate the sum of the areas of the three smaller triangles formed by any of the two corners and the origin. Comparing the result with the area of the original triangle, we know for sure that whether or not the origin is emcompassed in the triangular plane!</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -19,7 +19,8 @@
     <pubDate>Thu, 02 Sep 2021 16:38:27 -0400</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/triangle-containment/</guid>
-    <description><![CDATA[The third post.]]></description>
+    <description><![CDATA[How do you tell whether or not, a triangle drawn in a Cartesian plane contains the origin (0,0)? It is not a brain teaser as far as we can actually draw the trangle using the coordinates for its three corners, and tell from our eye whether or not it is true. But things get a little bit hard when we need to think about this algorithmically.
+How to approach it? Once we connect the three corners to form a triangle, we have created a plane, in which an almost infinite number of points can be included.]]></description>
 </item><item>
     <title>Coin Sum</title>
     <link>http://evers-feng.com/blogs/posts/coin-sum/</link>
