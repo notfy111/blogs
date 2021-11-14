@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/insects_classification\/"
-        },"genre": "posts","wordcount":  144 ,
+        },"genre": "posts","wordcount":  398 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/insects_classification\/","datePublished": "2021-11-14T15:51:01-05:00","dateModified": "2021-11-14T15:51:01-05:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -77,8 +77,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Interpretable CNN: Insect Classification</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-14">2021-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;144 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-14">2021-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;398 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -96,7 +96,41 @@
 <p>Convolutional Neural Network has made ground-breaking achivements in the Computer Domain. Nowadays, it has been widely on different deep learning tasks including object classification, search engines, and face recognition. However, given its complex architecture and high abstraction level, CNN models have remained relatively un-explainable and are bestowed the name of &ldquo;black box model.&rdquo;
 Researchers have been trying to find frameworks and tools that can help debunk the myths of CNN and make it more interpretable. <a href="https://github.com/slundberg/shap" target="_blank" rel="noopener noreffer">SHAP</a> is one of the most robust and easy-to-use tools that visualize and make sense of the model prediction. In this analysis, we are going to use a Tensorflow CNN model on insect images to create a classification model that distinguishes beetles, cockroaches, and dragonflies. Then we are going to use SHAP to interprete the model and understand how does the model made predictions.</p>
 <h2 id="data">Data</h2>
-<h2 id="model">Model</h2>
+<p>For this task, we are going to train our model on 1019 photos that is balanced across three different insects: beetles, cockroaches, and dragonflies. After training, we are going to examine model performance on 180 photos also balanced across the three different classes.
+When creating the data, therea are 4 pre-processing steps:</p>
+<ul>
+<li>convert photo folder index into numerical label</li>
+<li>read in images in grey scale</li>
+<li>standardize each pixel value by 255</li>
+<li>scale each picture to be 200 x 200 dimension.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+    <span class="c1"># path to folder that contains the picture</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_directory</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>  <span class="c1"># Iterate over every image</span>
+        <span class="n">img_array</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">img</span><span class="p">)</span> <span class="p">,</span><span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span> <span class="c1"># Convert to array</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">categories</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">category</span><span class="p">)</span> <span class="c1"># Give label: beetles=0, cockroach=1, dragonflies = 2</span>
+        <span class="n">resized_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="p">(</span><span class="n">imag_size</span><span class="p">,</span> <span class="n">imag_size</span><span class="p">))</span>
+        <span class="n">standardized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">resized_img</span><span class="p">,</span> <span class="n">standardize</span><span class="p">)</span>
+        <span class="n">training_data</span><span class="o">.</span><span class="n">append</span><span class="p">([(</span><span class="n">standardized</span><span class="p">),</span> <span class="n">label</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="model">Model</h2>
+<p>In this analysis, we built a CNN model using Tensorflow Keras that has two convolutional layers, one max pooling layer, and two fully-connected layers. Essentially, this model takes in 200 x 200 x 1 matrix, and sequentially applies layers on the input and use a softmax function to assign a probability of the photo belonging to each class.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+                 <span class="n">input_shape</span><span class="o">=</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div><p>This relatively simple architecture after 3 epochs of training is able to give satisfactory predictions. The evaluation results show that the model has accuracy, precision, recall all close to 0.98, with F1 score of 0.978.</p>
 <h2 id="shap-interpretation">SHAP Interpretation</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
