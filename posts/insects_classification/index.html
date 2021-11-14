@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Interpretable CNN: Insect Classification - Evers Feng Blog</title><meta name="Description" content=""><meta property="og:title" content="Interpretable CNN: Insect Classification" />
-<meta property="og:description" content="This is the post." />
+<meta property="og:description" content="Background Convolutional Neural Network has made ground-breaking achivements in the Computer Domain. Nowadays, it has been widely on different deep learning tasks including object classification, search engines, and face recognition. However, given its complex architecture and high abstraction level, CNN models have remained relatively un-explainable and are bestowed the name of &ldquo;black box model.&rdquo; Researchers have been trying to find frameworks and tools that can help debunk the myths of CNN and make it more interpretable." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://evers-feng.com/blogs/posts/insects_classification/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-14T15:51:01-05:00" />
@@ -14,7 +14,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Interpretable CNN: Insect Classification"/>
-<meta name="twitter:description" content="This is the post."/>
+<meta name="twitter:description" content="Background Convolutional Neural Network has made ground-breaking achivements in the Computer Domain. Nowadays, it has been widely on different deep learning tasks including object classification, search engines, and face recognition. However, given its complex architecture and high abstraction level, CNN models have remained relatively un-explainable and are bestowed the name of &ldquo;black box model.&rdquo; Researchers have been trying to find frameworks and tools that can help debunk the myths of CNN and make it more interpretable."/>
 <meta name="application-name" content="Evers Feng Blog">
 <meta name="apple-mobile-web-app-title" content="Evers Feng Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/insects_classification\/"
-        },"genre": "posts","wordcount":  4 ,
+        },"genre": "posts","wordcount":  144 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/insects_classification\/","datePublished": "2021-11-14T15:51:01-05:00","dateModified": "2021-11-14T15:51:01-05:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -77,15 +77,27 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Interpretable CNN: Insect Classification</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-14">2021-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-14">2021-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;144 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>This is the post.</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#model">Model</a></li>
+    <li><a href="#shap-interpretation">SHAP Interpretation</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="background">Background</h2>
+<p>Convolutional Neural Network has made ground-breaking achivements in the Computer Domain. Nowadays, it has been widely on different deep learning tasks including object classification, search engines, and face recognition. However, given its complex architecture and high abstraction level, CNN models have remained relatively un-explainable and are bestowed the name of &ldquo;black box model.&rdquo;
+Researchers have been trying to find frameworks and tools that can help debunk the myths of CNN and make it more interpretable. SHAP[!https://github.com/slundberg/shap] is one of the most robust and easy-to-use tools that visualize and make sense of the model prediction. In this analysis, we are going to use a Tensorflow CNN model on insect images to create a classification model that distinguishes beetles, cockroaches, and dragonflies. Then we are going to use SHAP to interprete the model and understand how does the model made predictions.</p>
+<h2 id="data">Data</h2>
+<h2 id="model">Model</h2>
+<h2 id="shap-interpretation">SHAP Interpretation</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

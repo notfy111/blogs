@@ -12,7 +12,7 @@
     <pubDate>Sun, 14 Nov 2021 15:51:01 -0500</pubDate>
     <author>Author</author>
     <guid>http://evers-feng.com/blogs/posts/insects_classification/</guid>
-    <description><![CDATA[This is the post.]]></description>
+    <description><![CDATA[Background Convolutional Neural Network has made ground-breaking achivements in the Computer Domain. Nowadays, it has been widely on different deep learning tasks including object classification, search engines, and face recognition. However, given its complex architecture and high abstraction level, CNN models have remained relatively un-explainable and are bestowed the name of &ldquo;black box model.&rdquo; Researchers have been trying to find frameworks and tools that can help debunk the myths of CNN and make it more interpretable.]]></description>
 </item><item>
     <title>Life After Graduate School - Doctorate Recipient Income Analysis</title>
     <link>http://evers-feng.com/blogs/posts/graduate-school-dashboard/</link>
