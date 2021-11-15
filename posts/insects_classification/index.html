@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/evers-feng.com\/blogs\/posts\/insects_classification\/"
-        },"genre": "posts","wordcount":  532 ,
+        },"genre": "posts","wordcount":  541 ,
         "url": "http:\/\/evers-feng.com\/blogs\/posts\/insects_classification\/","datePublished": "2021-11-14T15:51:01-05:00","dateModified": "2021-11-14T15:51:01-05:00","publisher": {
             "@type": "Organization",
             "name": "Evers"},"author": {
@@ -77,7 +77,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Interpretable CNN: Insect Classification</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://evers-feng.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Evers</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-14">2021-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;532 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-14">2021-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;541 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -133,14 +133,16 @@ When creating the data, therea are 4 pre-processing steps:</p>
 </code></pre></div><p>This relatively simple architecture after 3 epochs of training is able to give satisfactory predictions. The evaluation results show that the model has accuracy, precision, recall all close to 0.98, with F1 score of 0.978.</p>
 <h2 id="shap-interpretation">SHAP Interpretation</h2>
 <p>Now we are able to see all the trained parameters, prediction results, and different types of evaluation metrics. But how did the model reach the decision that it made? What are the criteria for predicting a picture as bettles instead of dragon flies?
-<img
-        class="lazyload"
-        src="/blogs/svg/loading.min.svg"
-        data-src="../../images/shap.jpeg"
-        data-srcset="../../images/shap.jpeg, ../../images/shap.jpeg 1.5x, ../../images/shap.jpeg 2x"
-        data-sizes="auto"
-        alt="../../images/shap.jpeg"
-        title="SHAP values embedded test pictures" />
+<figure><a class="lightgallery" href="../../images/shap.jpeg" title="SHAP values embedded test pictures" data-thumbnail="../../images/shap.jpeg" data-sub-html="<h2>SHAP picture</h2><p>SHAP values embedded test pictures</p>">
+        <img
+            class="lazyload"
+            src="/blogs/svg/loading.min.svg"
+            data-src="../../images/shap.jpeg"
+            data-srcset="../../images/shap.jpeg, ../../images/shap.jpeg 1.5x, ../../images/shap.jpeg 2x"
+            data-sizes="auto"
+            alt="../../images/shap.jpeg" />
+    </a><figcaption class="image-caption">SHAP picture</figcaption>
+    </figure>
 What SHAP algorithm does is to use a game theoretic approach to explain the output of any machine learning model. Specifically, red pixels represent positive SHAP values that increase the probability of the class, while blue pixels represent negative SHAP values the reduce the probability of the class.
 In this case, we see that the the upper left graph maps to the positive SHAP values for assigning this graph to class 0, which is beetles. It seems that it captures the the lower tail of the beetle as key defining features.</p>
 </div><div class="post-footer" id="post-footer">
